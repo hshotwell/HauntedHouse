@@ -56,6 +56,7 @@ vspd = 0;
             <string>/// Movement
 var hspd = (keyboard_check(ord("D")) - keyboard_check(ord("A")))*spd;
 var jkey = keyboard_check(ord("W"));
+var ukey = keyboard_check(ord("S"));
 
 // Check for the ground
 if (place_meeting(x, y+1, o_solid))
@@ -84,6 +85,22 @@ if (place_meeting(x+hspd, y, o_solid))
         x+= sign(hspd);
     }
     hspd = 0;
+}
+
+// Pickup code
+if (place_meeting(x +1, y, o_pickup) &amp;&amp; ukey)
+{
+    with instance_place(x +1, y, o_pickup)
+    {
+        instance_destroy();
+    }
+}
+if (place_meeting(x -1, y, o_pickup) &amp;&amp; ukey)
+{
+    with instance_place(x -1, y, o_pickup)
+    {
+        instance_destroy();
+    }
 }
 
 // Move horizontally

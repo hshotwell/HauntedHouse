@@ -28,6 +28,9 @@
             <string>///Initialize Variables
 
 global.following = o_player0;
+x = (global.following.x);
+y = (global.following.y);
+
 width = 320;
 height = 180;
 
@@ -61,8 +64,8 @@ depth = -88888888;
             <kind>1</kind>
             <string>///Run some Code
 
-x = (global.following.x) //- (width/2) - x) * .2;
-y = (global.following.y) //- (height/2) - y) * .2;
+x += ((global.following.x) - x) * .2   //- (width/2) - x) * .2;
+y += ((global.following.y) - y) * .2   //- (height/2) - y) * .2;
 </string>
           </argument>
         </arguments>

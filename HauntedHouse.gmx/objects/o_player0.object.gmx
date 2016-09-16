@@ -59,6 +59,7 @@ draw_yscale = 1;
             <string>/// Movement
 var hspd = (keyboard_check(vk_right) - keyboard_check(vk_left))*spd;
 var jkey = keyboard_check(vk_up);
+var ukey = keyboard_check(vk_down);
 
 // Check for the ground
 if (place_meeting(x, y+1, o_solid))
@@ -100,6 +101,22 @@ if (place_meeting(x, y+vspd, o_solid))
         y+= sign(vspd);
     }
     vspd = 0;
+}
+
+// Pickup code
+if (place_meeting(x +1, y, o_pickup) &amp;&amp; ukey)
+{
+    with instance_place(x +1, y, o_pickup)
+    {
+        instance_destroy();
+    }
+}
+if (place_meeting(x -1, y, o_pickup) &amp;&amp; ukey)
+{
+    with instance_place(x -1, y, o_pickup)
+    {
+        instance_destroy();
+    }
 }
 
 // Move vertically
