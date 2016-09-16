@@ -19,12 +19,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.activePlayer == 0) 
+            <string>if (global.following == o_player0) 
 {
-    global.activePlayer = 1;
+    global.following = o_player1;
 }else 
 {
-    global.activePlayer = 0;
+    global.following = o_player0;
 }
 </string>
           </argument>
